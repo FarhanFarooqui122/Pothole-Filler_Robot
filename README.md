@@ -1,11 +1,8 @@
-# Pothole-Filler_Robot 🤖
-An autonomous Arduino robot that detects potholes using ultrasonic sensors, calculates the center-point via a servo-scan, and fills them with material using a smart-fill dispensing system.
 
+# Autonomous Pothole Detection & Repair Robot (PROTOTYPE) 🤖
 ![Status](https://img.shields.io/badge/Status-Functional-success?style=for-the-badge&logo=arduino)
 ![Category](https://img.shields.io/badge/Category-Robotics-blue?style=for-the-badge)
 ![License](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)
-# Autonomous Pothole Detection & Repair Robot 🤖
-
 An Arduino-based autonomous vehicle designed to detect road surface irregularities (potholes), calculate their center-point using a scanning ultrasonic array, and deploy filler material through a servo-controlled funnel system.
 
 ## 🚀 Overview
@@ -17,6 +14,7 @@ The robot operates using a **Finite State Machine (FSM)** to transition between 
 * **🧠 Smart Fill Logic:** Real-time depth monitoring ensures the funnel closes precisely when the surface is level ($<1\text{cm}$) or the safety timeout is reached.
 * **🛡️ Obstacle Avoidance:** Equipped with a front-facing ultrasonic "eye" to prevent collisions during the scouting phase.
 * **🧹 Noise Filtering:** Implements a software-level averaging filter to ignore road debris and sensor "jitter" for reliable detection.
+* **   Automatic Alignment of Nozzle towards Pothole:** after a pothole is detected the nozzle automatically aligns itself at the center of pothole. 
 ---
 
 ## 🎯 Main Purpose
@@ -50,13 +48,24 @@ Road maintenance is often dangerous, expensive, and slow. The **primary goal** o
 
 ---
 
-## ⚙️ How It Works (State Machine)
+## ⚙️ How It Works (WORKFLOW!)
 
-1.  **`MOVE_FAST_SCAN`**: The robot moves forward while the nozzle servo sweeps quickly. If the sensor detects a distance increase (a hole), it stops immediately.
-2.  **`SLOW_FULL_SCAN`**: The robot performs a slow, thorough sweep across the pothole. It records every angle where a hole is detected.
-3.  **`ALIGN`**: It calculates the **Average Angle** (center) of all detected hole points and points the nozzle directly at that spot.
-4.  **`FILL`**: The funnel opens. The system monitors the depth in real-time. If the hole is filled to within 1cm of the ground level, or 6 seconds pass, the funnel closes.
+The robot follows a precise 5-step logic loop to ensure high-quality road repairs:
 
+1. **🔍 Scouting Phase:** The robot patrols forward in `MOVE_FAST_SCAN` mode. The nozzle servo performs a rapid sweep to "search" for depth irregularities.
+2. **⚠️ Detection & Braking:** Once the ultrasonic sensor detects a depth change $> 3\text{cm}$, the robot immediately stops all motor movement.
+3. **🔬 Precision Verification:** The system enters `SLOW_FULL_SCAN`. It performs a high-resolution, 2-degree increment sweep to map the exact boundaries and confirm it isn't a false trigger.
+4. **🎯 Center Alignment:** The robot calculates the average of all "deep" points detected. The nozzle servo then rotates to this specific **Center Angle** for perfect targeting.
+5. **🏗️ Smart Repair:** * The **Funnel Gate** opens via the servo motor.
+    * Material is dropped into the pothole.
+    * The sensor monitors the fill level in real-time.
+    * Once the hole is level with the ground ($<1\text{cm}$ depth), the gate shuts tightly.
+   
+## 🛡️ Safety & Obstacle Avoidance
+The robot is equipped with a dedicated **Front-Facing Ultrasonic Shield**. This safety layer runs independently of the pothole detection:
+* **Detection:** If an object is detected within **15cm**.
+* **Evasion:** The robot immediately stops, reverses for 500ms to create a safety buffer, and waits for the path to clear.
+* **Protection:** This prevents damage to the robot's sensor array and the internal electronics.
 ---
 
 ## 💻 Installation
