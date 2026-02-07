@@ -3,6 +3,9 @@
 ![Status](https://img.shields.io/badge/Status-Functional-success?style=for-the-badge&logo=arduino)
 ![Category](https://img.shields.io/badge/Category-Robotics-blue?style=for-the-badge)
 ![License](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)
+
+---
+
 An Arduino-based autonomous vehicle designed to detect road surface irregularities (potholes), calculate their center-point using a scanning ultrasonic array, and deploy filler material through a servo-controlled funnel system.
 
 ## 🚀 Overview
