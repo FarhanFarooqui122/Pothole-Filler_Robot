@@ -110,3 +110,5 @@ This allows the robot to ignore the road surface and only trigger when the dista
 
 ---
 *Developed for autonomous infrastructure maintenance.*
+![Robot Back View](assets/Back_view.jpg)
+
