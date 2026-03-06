@@ -97,7 +97,7 @@ This allows the robot to ignore the road surface and only trigger when the dista
 
 * **Language:** `C++ / Arduino Wire` 💻
 * **Hardware:** `Atmel ATmega328P` (Arduino Uno) ⚡
-* **Mechanical:** `Dual DC Gear Motors` + `Micro Servos` ⚙️
+* **Mechanical:** `Dual DC N20 Gear Motors` + `SG90 Servo Motors(180°)` ⚙️
 * **Sensing:** `HC-SR04 Ultrasonic Time-of-Flight` 📏
   
 ---
