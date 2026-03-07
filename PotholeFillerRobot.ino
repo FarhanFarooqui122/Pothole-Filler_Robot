@@ -25,22 +25,22 @@ const int echoPin = 7;
 const int obTrigPin = 13;
 const int obEchoPin = A0;
 
-//  BUZZER pin
+//  buzzer pin
 const int buzzerPin = 12;
 
-//FIXED PARAMETERS (CM ONLY) 
+//fixed parameters(CM ONLY) 
 const int GROUND_DISTANCE_CM = 6;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
 const int MIN_POTHOLE_DEPTH_CM = 3;                                                                                              
 const int OBSTACLE_THRESHOLD_CM = 15;
 
-// FILL CONTROL
+// fill control
 const int FILL_COMPLETE_TOLERANCE_CM = 1;
 const unsigned long MIN_FILL_TIME_MS = 800;
 const unsigned long MAX_FILL_TIME_MS = 6000;
 
 const int SLOW_SCAN_DELAY = 120;
 
-//  SERVO SCAN 
+// servo scan
 int scanAngle = 75;
 int scanDir = 1;
 const int SCAN_LEFT = 50;
