@@ -1,6 +1,6 @@
 
 # Autonomous Pothole Detection & Repair Robot (PROTOTYPE) 🤖
-![Status](https://img.shields.io/badge/Status-Functional-success?style=for-the-badge&logo=arduino)
+![Arduino Uno](https://img.shields.io/badge/Status-Functional-success?style=for-the-badge&logo=arduino)
 ![Category](https://img.shields.io/badge/Category-Robotics-blue?style=for-the-badge)
 ![License](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)
 
